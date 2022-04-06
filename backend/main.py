@@ -73,5 +73,3 @@ def deleteATask(id: str):
     return {
         "message": "Deleted Successfully!"
     }
-
-
