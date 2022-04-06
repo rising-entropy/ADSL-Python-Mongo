@@ -31,7 +31,7 @@ export default function AllTasks() {
         <div className='container container-fluid' style={{margin: '30px auto'}}>
             <h4 style={{margin: '20px auto'}}>All Tasks ({allTasks.length})</h4>
             <div className="row">
-                {allTasks.map((e, i)=><TaskInstance data={e} key={i} />)}
+                {allTasks.map((e, i)=><TaskInstance triggerUpdate={triggerUpdate} data={e} key={i} />)}
             </div>
         </div>
     </>
