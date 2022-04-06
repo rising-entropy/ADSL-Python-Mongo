@@ -3,10 +3,21 @@ from bson.objectid import ObjectId
 from fastapi import FastAPI
 from pydantic import BaseModel
 from getDatabase import get_database
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 theDB = get_database()
+
+origins = ['*']
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Task(BaseModel):
     task: str
