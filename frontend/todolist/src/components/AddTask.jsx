@@ -12,9 +12,10 @@ export default function AddTask(props) {
             task: theTask
         }
         axios.post('http://localhost:8000/tasks', body)
-        .then((response)=>[
+        .then((response)=>{
+            setTheTask("")
             props.triggerUpdate()
-        ])
+        })
         .catch((err)=>{
             console.log(err)
         })
@@ -26,7 +27,7 @@ export default function AddTask(props) {
             <div className="row">
                 <input onChange={(e)=>{
                     setTheTask(e.target.value)
-                }} placeholder='Add a New Task' style={{borderRadius: '30px'}} type="text" name="newTask" id="newTask" required/>
+                }} placeholder='Add a New Task' style={{borderRadius: '30px'}} type="text" name="newTask" id="newTask" value={theTask} required/>
             </div>
             <div className="row text-center">
                 <button style={{width: '180px', margin: '10px auto', borderRadius: '20px', boxShadow: "rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px", backgroundColor: '#DFDFDE', }} type="submit">Add</button>
